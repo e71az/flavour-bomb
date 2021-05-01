@@ -1,14 +1,15 @@
 import React from 'react';
 import logo from './logo.svg';
-import { Counter } from './components/Recipe';
+// import { Counter } from './components/Recipe';
 import './App.css';
+import CategoryList from './containers/CategoryList';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
+        <CategoryList />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>

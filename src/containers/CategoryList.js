@@ -2,6 +2,8 @@
 // import Book from '../components/Book';
 // import CategoryFilter from '../components/CategoryFilter';
 // import { CHANGE_FILTER } from '../reducers/books';
+import { useSelector } from 'react-redux';
+import Category from '../components/Category';
 
 // const BooksList = () => {
 //   const dispatch = useDispatch();
@@ -48,3 +50,15 @@
 // };
 
 // export default BooksList;
+
+const CategoryList = () => {
+  const { value } = useSelector((state) => state.recipe);
+
+  const categories = value.map((category) => (
+    <Category key={category.idCategory} category={category} />
+  ));
+
+  return <div>{categories}</div>;
+};
+
+export default CategoryList;
