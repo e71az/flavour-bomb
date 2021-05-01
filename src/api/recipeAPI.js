@@ -43,4 +43,4 @@ export const getAllRecipes = async () => {
   // );
 };
 
-console.log(getAllRecipes())
+// console.log(getAllRecipes())

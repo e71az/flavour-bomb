@@ -15,7 +15,7 @@ export function Counter() {
         >
           Increment
         </button>
-        <span>{dispatch(incrementAsync())}</span>
+        {/* <span>{dispatch(incrementAsync())}</span> */}
         <span>{count}</span>
 
         <button
