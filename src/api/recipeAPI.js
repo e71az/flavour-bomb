@@ -18,11 +18,11 @@
 // import fetch from 'node-fetch';
 // import 'regenerator-runtime/runtime';
 
-export const getAllRecipes = async (recipeContent = 'No data') => {
-  let API = 'www.themealdb.com/api/json/v1/1/filter.php?c=Seafood';
+export const getAllRecipes = async () => {
+  let API = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood';
 
   let response = '';
-  // let recipe;
+  let recipe;
   try {
     response = await fetch(API);
 
@@ -30,15 +30,17 @@ export const getAllRecipes = async (recipeContent = 'No data') => {
       throw Error('Something went wrong with the Recipe API');
     }
 
-    recipeContent = await response.json();
+    recipe = await response.json();
   } catch (error) {
     API = 'www.themealdb.com/api/json/v1/1/filter.php?c=Seafood';
     response = await fetch(API);
-    recipeContent = await response.json();
+    recipe = await response.json();
   }
 
-  // return recipe.result;
-    return new Promise((resolve) =>
-      setTimeout(() => resolve({ data: recipeContent }), 1000)
-    );
+  return recipe;
+  // return new Promise((resolve) =>
+  //   setTimeout(() => resolve({ data: recipeContent }), 1000)
+  // );
 };
+
+console.log(getAllRecipes())
