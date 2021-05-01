@@ -5,7 +5,7 @@ import { decrement, increment, incrementAsync } from '../reducers/recipeSlice';
 export function Counter() {
   const count = useSelector((state) => state.recipe.value);
   const dispatch = useDispatch();
-  dispatch(incrementAsync());
+  // dispatch(incrementAsync());
 
   return (
     <div>
@@ -17,7 +17,7 @@ export function Counter() {
           Increment
         </button>
         {/* <span>{dispatch(incrementAsync())}</span> */}
-        <span>{count}</span>
+        <span>{count[0].strCategory}</span>
 
         <button
           aria-label="Decrement value"

@@ -2,7 +2,15 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { getAllRecipes } from '../api/recipeAPI';
 
 const initialState = {
-  value: [],
+  value: [
+    {
+      idCategory: '1',
+      strCategory: 'Beef',
+      strCategoryThumb: 'https://www.themealdb.com/images/category/beef.png',
+      strCategoryDescription:
+        'Beef is the culinary name for meat from cattle, particularly skeletal muscle. Humans have been eating beef since prehistoric times.[1] Beef is a source of high-quality protein and essential nutrients.[2]',
+    },
+  ],
   status: 'idle',
 };
 
@@ -46,7 +54,7 @@ export const counterSlice = createSlice({
     builder.addCase(incrementAsync.fulfilled, (state, action) => ({
       status: 'loading',
       // let x = getAllRecipes()
-      value: JSON.stringify(action.payload),
+      value: action.payload,
       // console.log(action.payload);
     }));
     // .addCase(incrementAsync.fulfilled, (state) => {
