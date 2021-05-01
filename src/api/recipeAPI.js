@@ -19,7 +19,7 @@
 // import 'regenerator-runtime/runtime';
 
 export const getAllRecipes = async () => {
-  let API = 'https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood';
+  let API = 'https://www.themealdb.com/api/json/v1/1/categories.php';
 
   let response = '';
   let recipe;
@@ -37,7 +37,7 @@ export const getAllRecipes = async () => {
     recipe = await response.json();
   }
 
-  return recipe;
+  return recipe.categories;
   // return new Promise((resolve) =>
   //   setTimeout(() => resolve({ data: recipeContent }), 1000)
   // );

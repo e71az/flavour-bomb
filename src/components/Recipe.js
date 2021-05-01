@@ -5,6 +5,7 @@ import { decrement, increment, incrementAsync } from '../reducers/recipeSlice';
 export function Counter() {
   const count = useSelector((state) => state.recipe.value);
   const dispatch = useDispatch();
+  dispatch(incrementAsync());
 
   return (
     <div>

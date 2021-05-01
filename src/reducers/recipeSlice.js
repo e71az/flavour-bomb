@@ -16,7 +16,7 @@ export const incrementAsync = createAsyncThunk(
   async () => {
     const response = await getAllRecipes();
     // The value we return becomes the `fulfilled` action payload
-    return response.meals;
+    return response;
   }
 );
 
@@ -46,7 +46,7 @@ export const counterSlice = createSlice({
     builder.addCase(incrementAsync.fulfilled, (state, action) => ({
       status: 'loading',
       // let x = getAllRecipes()
-      value: JSON.stringify(action.payload[0]['strMeal']),
+      value: JSON.stringify(action.payload),
       // console.log(action.payload);
     }));
     // .addCase(incrementAsync.fulfilled, (state) => {
