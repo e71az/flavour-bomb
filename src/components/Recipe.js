@@ -16,17 +16,15 @@ export function Counter() {
           Increment
         </button>
         <span>{dispatch(incrementAsync())}</span>
+        <span>{count}</span>
+
         <button
           aria-label="Decrement value"
           onClick={() => dispatch(decrement())}
         >
           Decrement
         </button>
-        <button
-          onClick={() => dispatch(incrementAsync())}
-        >
-          Add Async
-        </button>
+        <button onClick={() => dispatch(incrementAsync())}>Add Async</button>
       </div>
     </div>
   );

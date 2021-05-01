@@ -46,7 +46,7 @@ export const counterSlice = createSlice({
     builder.addCase(incrementAsync.fulfilled, (state, action) => {
       state.status = 'loading';
       // let x = getAllRecipes()
-      state.value.push(action.payload[0]);
+      state.value = action.payload[0]['strMeal'];
       // console.log(action.payload);
     });
     // .addCase(incrementAsync.fulfilled, (state) => {
