@@ -5,30 +5,37 @@ import { selectAllRecipes, fetchRecipes } from '../reducers/recipeSlice';
 
 const CategoryList = () => {
   const dispatch = useDispatch();
-  const recipes = useSelector(selectAllRecipes);
-  const { value } = useSelector((state) => state.recipe);
-  const recipeStatus = useSelector((state) => state.recipe.status);
+  const recipeCategories = useSelector(selectAllRecipes);
+  const { value, status, error } = useSelector((state) => state.recipe);
 
   useEffect(() => {
-    if (recipeStatus === 'idle') {
+    if (status === 'idle') {
       dispatch(fetchRecipes());
     }
-  }, [recipeStatus, dispatch]);
+  }, [status, dispatch]);
 
-  console.log(value, recipeStatus, recipes);
+  console.log(value, status, recipeCategories);
 
+  let content;
+
+  if (status === 'loading') {
+    content = <div className="loader">Loading...</div>;
+  } else if (status === 'succeeded') {
+    content = recipeCategories.map((category) => (
+      <Category key={category.idCategory} category={category} />
+    ));
+  } else if (status === 'failed') {
+    content = <div>{error}</div>;
+  }
   // const categories = value.map((category) => (
   //   <Category key={category.idCategory} category={category} />
   // ));
 
   return (
-    <>
-      {toString(recipes)}
-      {/* <button onClick={() => dispatch(fetchRecipes())}>
-        Load more categories
-      </button> */}
-      {/* <div>{categories}</div> */}
-    </>
+    <section className="categories-list">
+      <h1>Recipe Categories</h1>
+      {content}
+    </section>
   );
 };
 
