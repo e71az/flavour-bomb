@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { getAllRecipes } from '../api/recipeAPI';
+import axios from 'axios';
 
 const initialState = {
   value: [],
@@ -10,8 +11,17 @@ const initialState = {
 export const fetchRecipes = createAsyncThunk(
   'recipes/fetchRecipes',
   async () => {
-    const response = await getAllRecipes();
-    return response.categories;
+    try {
+      const response = await axios.get(
+        'https://www.themealdb.com/api/json/v1/1/categories.php'
+      );
+      return response.data.categories;
+    } catch (error) {
+      console.log(error);
+    }
+
+    // const response = await getAllRecipes();
+    // return response.categories;
   }
 );
 

@@ -34,10 +34,6 @@ const CategoryList = () => {
   return (
     <section className="categories-list">
       <h1>Recipe Categories</h1>
-      <button type="button" class="btn btn-primary">
-        Primary
-      </button>
-
       {content}
     </section>
   );
