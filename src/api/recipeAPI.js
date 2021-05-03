@@ -37,7 +37,7 @@ export const getAllRecipes = async () => {
     recipe = await response.json();
   }
 
-  return recipe.categories;
+  return recipe;
   // return new Promise((resolve) =>
   //   setTimeout(() => resolve({ data: recipeContent }), 1000)
   // );

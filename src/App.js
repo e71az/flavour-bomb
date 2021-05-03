@@ -9,9 +9,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <CategoryList />
         <p>
           Edit <code>src/App.js</code> and save to reload.
+          <CategoryList />
         </p>
         <span>
           <span>Learn </span>

@@ -1,64 +1,35 @@
-// import { useSelector, useDispatch } from 'react-redux';
-// import Book from '../components/Book';
-// import CategoryFilter from '../components/CategoryFilter';
-// import { CHANGE_FILTER } from '../reducers/books';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Category from '../components/Category';
-
-// const BooksList = () => {
-//   const dispatch = useDispatch();
-
-//   const handleFilterChange = (event) => {
-//     event.preventDefault();
-
-//     dispatch(CHANGE_FILTER(event.target.value));
-//   };
-
-//   const { booksArray } = useSelector((state) => state.books);
-//   let { filter } = useSelector((state) => state.books);
-//   if (filter === undefined) {
-//     filter = 'All';
-//   }
-
-//   let checkIfEmtpy = booksArray;
-
-//   if (booksArray.length === 0 || booksArray === undefined) {
-//     checkIfEmtpy = 'No books';
-//   } else if (filter === 'All') {
-//     checkIfEmtpy = booksArray.map((book) => <Book key={book.ID} book={book} />);
-//   } else if (
-//     checkIfEmtpy.length > 0 &&
-//     checkIfEmtpy !== undefined &&
-//     checkIfEmtpy !== []
-//   ) {
-//     checkIfEmtpy = booksArray.filter((obj) => obj.category === filter);
-//     checkIfEmtpy = checkIfEmtpy.map((book) => (
-//       <Book key={book.ID} book={book} />
-//     ));
-//   } else {
-//     checkIfEmtpy = 'State lost';
-//   }
-
-//   return (
-//     <div>
-//       <div className="ml-5">
-//         <CategoryFilter handleFilterChange={handleFilterChange} />
-//       </div>
-//       {checkIfEmtpy}
-//     </div>
-//   );
-// };
-
-// export default BooksList;
+import { selectAllRecipes, fetchRecipes } from '../reducers/recipeSlice';
 
 const CategoryList = () => {
+  const dispatch = useDispatch();
+  const recipes = useSelector(selectAllRecipes);
   const { value } = useSelector((state) => state.recipe);
+  const recipeStatus = useSelector((state) => state.recipe.status);
 
-  const categories = value.map((category) => (
-    <Category key={category.idCategory} category={category} />
-  ));
+  useEffect(() => {
+    if (recipeStatus === 'idle') {
+      dispatch(fetchRecipes());
+    }
+  }, [recipeStatus, dispatch]);
 
-  return <div>{categories}</div>;
+  console.log(value, recipeStatus, recipes);
+
+  // const categories = value.map((category) => (
+  //   <Category key={category.idCategory} category={category} />
+  // ));
+
+  return (
+    <>
+      {toString(recipes)}
+      {/* <button onClick={() => dispatch(fetchRecipes())}>
+        Load more categories
+      </button> */}
+      {/* <div>{categories}</div> */}
+    </>
+  );
 };
 
 export default CategoryList;
