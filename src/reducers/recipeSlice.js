@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { getAllRecipes } from '../api/recipeAPI';
 import axios from 'axios';
 
 const initialState = {
@@ -19,11 +18,19 @@ export const fetchRecipes = createAsyncThunk(
     } catch (error) {
       console.log(error);
     }
-
-    // const response = await getAllRecipes();
-    // return response.categories;
   }
 );
+
+export const fetchMeals = createAsyncThunk('recipes/fetchMeals', async () => {
+  try {
+    const response = await axios.get(
+      'https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood'
+    );
+    return response.data.meals;
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 export const counterSlice = createSlice({
   name: 'counter',
@@ -51,12 +58,18 @@ export const counterSlice = createSlice({
       .addCase(fetchRecipes.rejected, (state, action) => ({
         status: 'failed',
         error: action.error.message,
+      }))
+      .addCase(fetchMeals.pending, (state, action) => ({
+        status: 'loading',
+      }))
+      .addCase(fetchMeals.fulfilled, (state, action) => ({
+        status: 'succeeded',
+        value: action.payload,
+      }))
+      .addCase(fetchMeals.rejected, (state, action) => ({
+        status: 'failed',
+        error: action.error.message,
       }));
-    // .addCase(incrementAsync.fulfilled, (state) => {
-    //   state.status = 'idle';
-    //   state.value = incrementAsync;
-    //   console.log(incrementAsync.meals);
-    // });
   },
 });
 

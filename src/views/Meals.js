@@ -1,8 +1,12 @@
 import React from 'react';
-import CategoryList from '../containers/CategoryList';
+import MealList from '../containers/MealList';
 
 function Meals() {
-  return <div>Meals</div>;
+  return (
+    <div>
+      <MealList />
+    </div>
+  );
 }
 
 export default Meals;

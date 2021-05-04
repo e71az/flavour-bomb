@@ -1,7 +1,7 @@
 import React from 'react';
 import CategoryList from '../containers/CategoryList';
 
-function App() {
+function Home() {
   return (
     <div>
       <CategoryList />
@@ -9,4 +9,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;

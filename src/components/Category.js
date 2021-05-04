@@ -7,7 +7,7 @@ const Category = ({
   },
 }) => {
   return (
-    <a href='hello.com'>
+    <a href="/meals">
       <h5>{idCategory}</h5>
       <h5>{strCategory}</h5>
       <img src={strCategoryThumb} />
