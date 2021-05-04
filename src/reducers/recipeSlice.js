@@ -5,6 +5,7 @@ const initialState = {
   value: [],
   status: 'idle',
   error: null,
+  meal: null,
 };
 
 export const fetchRecipes = createAsyncThunk(
@@ -21,38 +22,41 @@ export const fetchRecipes = createAsyncThunk(
   }
 );
 
-export const fetchMeals = createAsyncThunk('recipes/fetchMeals', async () => {
-  try {
-    const response = await axios.get(
-      'https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood'
-    );
-    return response.data.meals;
-  } catch (error) {
-    console.log(error);
+export const fetchMeals = createAsyncThunk(
+  'recipes/fetchMeals',
+  async (arg, { getState }) => {
+    const state = getState();
+
+    try {
+      console.log(state.recipe.meal);
+
+      const response = await axios.get(
+        `https://www.themealdb.com/api/json/v1/1/filter.php?c=${state.recipe.meal}`
+      );
+      return response.data.meals;
+    } catch (error) {
+      console.log(error);
+    }
   }
-});
+);
 
 export const counterSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1;
-    },
-    decrement: (state) => {
-      state.value -= 1;
-    },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
+    mealFilter: (state, action) => {
+      state.meal = action.payload;
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchRecipes.pending, (state, action) => ({
         status: 'loading',
+        value: state.value,
+        meal: state.meal,
       }))
       .addCase(fetchRecipes.fulfilled, (state, action) => ({
-        status: 'succeeded',
+        status: 'categories',
         value: action.payload,
       }))
       .addCase(fetchRecipes.rejected, (state, action) => ({
@@ -61,10 +65,13 @@ export const counterSlice = createSlice({
       }))
       .addCase(fetchMeals.pending, (state, action) => ({
         status: 'loading',
+        value: state.value,
+        meal: state.meal,
       }))
       .addCase(fetchMeals.fulfilled, (state, action) => ({
-        status: 'succeeded',
+        status: 'meals',
         value: action.payload,
+        meal: state.meal,
       }))
       .addCase(fetchMeals.rejected, (state, action) => ({
         status: 'failed',
@@ -73,7 +80,12 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const {
+  increment,
+  decrement,
+  incrementByAmount,
+  mealFilter,
+} = counterSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of

@@ -9,7 +9,7 @@ const CategoryList = () => {
   const { value, status, error } = useSelector((state) => state.recipe);
 
   useEffect(() => {
-    if (status === 'idle') {
+    if (status === 'idle' || status === 'meals') {
       dispatch(fetchRecipes());
     }
   }, [status, dispatch]);
@@ -20,16 +20,13 @@ const CategoryList = () => {
 
   if (status === 'loading') {
     content = <div className="loader">Loading...</div>;
-  } else if (status === 'succeeded') {
+  } else if (status === 'categories') {
     content = recipeCategories.map((category) => (
       <Category key={category.idCategory} category={category} />
     ));
   } else if (status === 'failed') {
     content = <div>{error}</div>;
   }
-  // const categories = value.map((category) => (
-  //   <Category key={category.idCategory} category={category} />
-  // ));
 
   return (
     <section className="categories-list">

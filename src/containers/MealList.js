@@ -9,7 +9,7 @@ const MealList = () => {
   const { value, status, error } = useSelector((state) => state.recipe);
 
   useEffect(() => {
-    if (status === 'idle') {
+    if (status === 'categories') {
       dispatch(fetchMeals());
     }
   }, [status, dispatch]);
@@ -20,7 +20,7 @@ const MealList = () => {
 
   if (status === 'loading') {
     content = <div className="loader">Loading...</div>;
-  } else if (status === 'succeeded') {
+  } else if (status === 'meals') {
     content = meals.map((meal) => <Meal key={meal.idMeal} meal={meal} />);
   } else if (status === 'failed') {
     content = <div>{error}</div>;
