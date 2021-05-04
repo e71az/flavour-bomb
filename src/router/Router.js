@@ -1,18 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import App from '../views/App';
-import FilteredCategories from '../views/FilteredCategories';
+import Meals from '../views/Meals';
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={App} />
-        <Route
-          exact
-          path="/filtered-categories"
-          component={FilteredCategories}
-        />
+        <Route exact path="/meals" component={Meals} />
       </Switch>
     </BrowserRouter>
   );
