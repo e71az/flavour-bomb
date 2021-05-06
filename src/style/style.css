@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+:root {
+  --main-titles-font: 'Itim', cursive;
+  --main-golden-color: rgb(255, 237, 136);
+}
+
+a,
+a:visited,
+a:hover {
+  text-decoration: none;
+}
+
+.navbar {
+  background-color: black;
+  border: 1px solid gray;
+}
+
+.navbar a {
+  color: var(--main-golden-color);
+  font-family: var(--main-titles-font);
+  font-size: 1.3em;
+}
