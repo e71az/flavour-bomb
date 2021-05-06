@@ -13,8 +13,6 @@ a:hover {
 
 .navbar {
   background-color: black;
-  /* border: 1px solid var(--main-golden-color);
-  border-bottom: none; */
 }
 
 .navbar a {
@@ -59,7 +57,6 @@ a:hover {
   }
   .img-meal-container {
     height: 35vh;
-    /* background-size: contain; */
     background-position: center;
   }
 }

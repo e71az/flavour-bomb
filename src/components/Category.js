@@ -14,9 +14,6 @@ const Category = ({
 
   return (
     <Link to="/meals" onClick={() => dispatch(mealFilter(strCategory))}>
-      {/* <img src={strCategoryThumb} className="img-container" /> */}
-      {/* <h5>{strCategoryDescription}</h5> */}
-
       <div
         className="img-category-container"
         style={{

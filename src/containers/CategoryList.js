@@ -30,9 +30,6 @@ const CategoryList = () => {
 
   return (
     <section className="categories-list">
-      {/* <h1 className="category transparent-banner text-center py-2">
-        Categories
-      </h1> */}
       {content}
     </section>
   );
