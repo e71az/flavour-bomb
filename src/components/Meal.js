@@ -2,7 +2,7 @@ const Meal = ({ meal: { idMeal, strMeal, strMealThumb } }) => {
   return (
     <a href="#">
       <div
-        className="img-container"
+        className="img-meal-container"
         style={{
           backgroundImage: `url(${strMealThumb})`,
         }}

@@ -20,15 +20,7 @@ a:hover {
 .navbar a {
   color: var(--main-golden-color);
   font-family: var(--main-titles-font);
-  font-size: 1.3em;
-}
-
-.categories-list a {
-  /* background-color: black; */
-}
-
-.categories-list .category {
-  font-size: 1.3em;
+  font-size: 1.8em;
 }
 
 .transparent-banner {
@@ -40,10 +32,34 @@ a:hover {
   width: 100%;
 }
 
-.img-container {
+.img-category-container,
+.img-meal-container {
   height: 30vh;
   width: 100vw;
   background-repeat: no-repeat;
   background-size: cover;
   background-color: lightgrey;
+  background-position: center;
+}
+
+.img-category-container h5,
+.img-meal-container h5 {
+  font-family: var(--main-titles-font);
+  font-size: 1.3em;
+}
+
+@media only screen and (min-width: 768px) {
+  .transparent-banner {
+    margin-top: 30.5vh;
+  }
+  .img-category-container {
+    height: 35vh;
+    background-size: contain;
+    background-position: center;
+  }
+  .img-meal-container {
+    height: 35vh;
+    /* background-size: contain; */
+    background-position: center;
+  }
 }

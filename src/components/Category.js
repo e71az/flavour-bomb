@@ -18,7 +18,7 @@ const Category = ({
       {/* <h5>{strCategoryDescription}</h5> */}
 
       <div
-        className="img-container"
+        className="img-category-container"
         style={{
           backgroundImage: `url(${strCategoryThumb})`,
         }}
