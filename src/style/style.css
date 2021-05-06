@@ -2,6 +2,7 @@
 :root {
   --main-titles-font: 'Itim', cursive;
   --main-golden-color: rgb(255, 237, 136);
+  border: 1px solid var(--main-golden-color);
 }
 
 a,
@@ -12,11 +13,37 @@ a:hover {
 
 .navbar {
   background-color: black;
-  border: 1px solid gray;
+  /* border: 1px solid var(--main-golden-color);
+  border-bottom: none; */
 }
 
 .navbar a {
   color: var(--main-golden-color);
   font-family: var(--main-titles-font);
   font-size: 1.3em;
+}
+
+.categories-list a {
+  /* background-color: black; */
+}
+
+.categories-list .category {
+  font-size: 1.3em;
+}
+
+.transparent-banner {
+  background-color: black;
+  opacity: 0.8;
+  color: white;
+  position: absolute;
+  margin-top: 25.5vh;
+  width: 100%;
+}
+
+.img-container {
+  height: 30vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: lightgrey;
 }

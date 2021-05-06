@@ -28,7 +28,7 @@ const MealList = () => {
 
   return (
     <section className="categories-list">
-      <h1>Recipe Categories</h1>
+      {/* <h1 className="category transparent-banner text-center py-2">Meals</h1> */}
       {content}
     </section>
   );

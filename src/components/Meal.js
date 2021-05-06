@@ -1,9 +1,14 @@
 const Meal = ({ meal: { idMeal, strMeal, strMealThumb } }) => {
   return (
     <a href="#">
-      <h5>{idMeal}</h5>
-      <h5>{strMeal}</h5>
-      <img src={strMealThumb} />
+      <div
+        className="img-container"
+        style={{
+          backgroundImage: `url(${strMealThumb})`,
+        }}
+      >
+        <h5 className="transparent-banner pl-3 py-2">{strMeal}</h5>
+      </div>
     </a>
   );
 };

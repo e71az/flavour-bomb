@@ -14,10 +14,17 @@ const Category = ({
 
   return (
     <Link to="/meals" onClick={() => dispatch(mealFilter(strCategory))}>
-      <h5>{idCategory}</h5>
-      <h5>{strCategory}</h5>
-      <img src={strCategoryThumb} />
-      <h5>{strCategoryDescription}</h5>
+      {/* <img src={strCategoryThumb} className="img-container" /> */}
+      {/* <h5>{strCategoryDescription}</h5> */}
+
+      <div
+        className="img-container"
+        style={{
+          backgroundImage: `url(${strCategoryThumb})`,
+        }}
+      >
+        <h5 className="transparent-banner pl-3 py-2">{strCategory}</h5>
+      </div>
     </Link>
   );
 };
