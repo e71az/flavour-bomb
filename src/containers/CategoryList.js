@@ -19,7 +19,13 @@ const CategoryList = () => {
   let content;
 
   if (status === 'loading') {
-    content = <div className="loader">Loading...</div>;
+    content = (
+      <div class="lds-facebook">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    );
   } else if (status === 'categories') {
     content = recipeCategories.map((category) => (
       <Category key={category.idCategory} category={category} />
@@ -28,11 +34,7 @@ const CategoryList = () => {
     content = <div>{error}</div>;
   }
 
-  return (
-    <section className="categories-list">
-      {content}
-    </section>
-  );
+  return <section className="categories-list">{content}</section>;
 };
 
 export default CategoryList;

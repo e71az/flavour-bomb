@@ -19,18 +19,20 @@ const MealList = () => {
   let content;
 
   if (status === 'loading') {
-    content = <div className="loader">Loading...</div>;
+    content = (
+      <div class="lds-facebook">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    );
   } else if (status === 'meals') {
     content = meals.map((meal) => <Meal key={meal.idMeal} meal={meal} />);
   } else if (status === 'failed') {
     content = <div>{error}</div>;
   }
 
-  return (
-    <section className="categories-list">
-      {content}
-    </section>
-  );
+  return <section className="categories-list">{content}</section>;
 };
 
 export default MealList;
