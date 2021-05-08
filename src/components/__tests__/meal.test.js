@@ -2,11 +2,11 @@ import { render, screen, cleanup } from '@testing-library/react';
 import Meal from '../Meal';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-describe('Meal component tests', () => {
-  afterEach(() => {
-    cleanup();
-  });
+afterEach(() => {
+  cleanup();
+});
 
+describe('Meal component tests', () => {
   const meal = {
     idMeal: 1,
     strMeal: 'Shrimp Pizza',

@@ -1,11 +1,12 @@
 import { render, screen, cleanup } from '@testing-library/react';
 import NavBar from '../NavBar';
 import { BrowserRouter as Router } from 'react-router-dom';
-describe('NavBar component tests', () => {
-  afterEach(() => {
-    cleanup();
-  });
 
+afterEach(() => {
+  cleanup();
+});
+
+describe('NavBar component tests', () => {
   render(
     <Router>
       <NavBar />

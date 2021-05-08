@@ -15,6 +15,7 @@ const Category = ({
   return (
     <Link to="/meals" onClick={() => dispatch(mealFilter(strCategory))}>
       <div
+        data-testid="category"
         className="img-category-container"
         style={{
           backgroundImage: `url(${strCategoryThumb})`,
