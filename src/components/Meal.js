@@ -1,4 +1,7 @@
-const Meal = ({ meal: { idMeal, strMeal, strMealThumb } }) => (
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import { PropTypes } from 'prop-types';
+
+const Meal = ({ meal: { strMeal, strMealThumb } }) => (
   <a href="#">
     <div
       data-testid="meal"
@@ -11,5 +14,9 @@ const Meal = ({ meal: { idMeal, strMeal, strMealThumb } }) => (
     </div>
   </a>
 );
+
+Meal.propTypes = {
+  meal: PropTypes.isRequired,
+};
 
 export default Meal;

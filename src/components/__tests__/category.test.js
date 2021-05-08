@@ -2,7 +2,7 @@ import { render, screen, cleanup } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import renderer from 'react-test-renderer';
-import { store } from '../../app/store';
+import store from '../../app/store';
 import Category from '../Category';
 
 afterEach(() => {

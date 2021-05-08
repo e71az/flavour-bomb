@@ -1,3 +1,4 @@
+/* eslint-disable max-len, no-param-reassign, consistent-return, no-console */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -50,7 +51,7 @@ export const counterSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchRecipes.pending, (state, action) => ({
+      .addCase(fetchRecipes.pending, (state) => ({
         status: 'loading',
         value: state.value,
         meal: state.meal,
@@ -63,7 +64,7 @@ export const counterSlice = createSlice({
         status: 'failed',
         error: action.error.message,
       }))
-      .addCase(fetchMeals.pending, (state, action) => ({
+      .addCase(fetchMeals.pending, (state) => ({
         status: 'loading',
         value: state.value,
         meal: state.meal,

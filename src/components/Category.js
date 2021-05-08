@@ -1,15 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 import { mealFilter } from '../reducers/recipeSlice';
 
-const Category = ({
-  category: {
-    idCategory,
-    strCategory,
-    strCategoryThumb,
-    strCategoryDescription,
-  },
-}) => {
+const Category = ({ category: { strCategory, strCategoryThumb } }) => {
   const dispatch = useDispatch();
 
   return (
@@ -25,6 +19,10 @@ const Category = ({
       </div>
     </Link>
   );
+};
+
+Category.propTypes = {
+  category: PropTypes.isRequired,
 };
 
 export default Category;

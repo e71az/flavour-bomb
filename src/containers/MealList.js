@@ -6,15 +6,13 @@ import { selectAllRecipes, fetchMeals } from '../reducers/recipeSlice';
 const MealList = () => {
   const dispatch = useDispatch();
   const meals = useSelector(selectAllRecipes);
-  const { value, status, error } = useSelector((state) => state.recipe);
+  const { status, error } = useSelector((state) => state.recipe);
 
   useEffect(() => {
     if (status === 'categories') {
       dispatch(fetchMeals());
     }
   }, [status, dispatch]);
-
-  console.log(value, status, meals);
 
   let content;
 
