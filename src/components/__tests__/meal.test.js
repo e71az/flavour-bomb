@@ -1,7 +1,7 @@
 import { render, screen, cleanup } from '@testing-library/react';
-import Meal from '../Meal';
 import { BrowserRouter as Router } from 'react-router-dom';
 import renderer from 'react-test-renderer';
+import Meal from '../Meal';
 
 afterEach(() => {
   cleanup();
@@ -19,7 +19,7 @@ describe('Meal component tests', () => {
   render(
     <Router>
       <Meal meal={meal} />
-    </Router>
+    </Router>,
   );
 
   // This renderer is for snapshot testing
@@ -27,7 +27,7 @@ describe('Meal component tests', () => {
     .create(
       <Router>
         <Meal meal={meal} />
-      </Router>
+      </Router>,
     )
     .toJSON();
 

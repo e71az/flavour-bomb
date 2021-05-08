@@ -1,7 +1,7 @@
 import { render, screen, cleanup } from '@testing-library/react';
-import NavBar from '../NavBar';
 import { BrowserRouter as Router } from 'react-router-dom';
 import renderer from 'react-test-renderer';
+import NavBar from '../NavBar';
 
 afterEach(() => {
   cleanup();
@@ -12,7 +12,7 @@ describe('NavBar component tests', () => {
   render(
     <Router>
       <NavBar />
-    </Router>
+    </Router>,
   );
 
   // This renderer is for snapshot testing
@@ -20,7 +20,7 @@ describe('NavBar component tests', () => {
     .create(
       <Router>
         <NavBar />
-      </Router>
+      </Router>,
     )
     .toJSON();
 

@@ -1,9 +1,9 @@
 import { render, screen, cleanup } from '@testing-library/react';
-import Category from '../Category';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { store } from '../../app/store';
 import renderer from 'react-test-renderer';
+import { store } from '../../app/store';
+import Category from '../Category';
 
 afterEach(() => {
   cleanup();
@@ -24,7 +24,7 @@ describe('Meal component tests', () => {
       <Router>
         <Category category={category} />
       </Router>
-    </Provider>
+    </Provider>,
   );
 
   // This renderer is for snapshot testing
@@ -34,7 +34,7 @@ describe('Meal component tests', () => {
         <Router>
           <Category category={category} />
         </Router>
-      </Provider>
+      </Provider>,
     )
     .toJSON();
 

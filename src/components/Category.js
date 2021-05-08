@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
-import { mealFilter } from '../reducers/recipeSlice';
 import { Link } from 'react-router-dom';
+import { mealFilter } from '../reducers/recipeSlice';
 
 const Category = ({
   category: {

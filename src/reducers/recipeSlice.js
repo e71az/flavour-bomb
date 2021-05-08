@@ -13,13 +13,13 @@ export const fetchRecipes = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        'https://www.themealdb.com/api/json/v1/1/categories.php'
+        'https://www.themealdb.com/api/json/v1/1/categories.php',
       );
       return response.data.categories;
     } catch (error) {
       console.log(error);
     }
-  }
+  },
 );
 
 export const fetchMeals = createAsyncThunk(
@@ -31,13 +31,13 @@ export const fetchMeals = createAsyncThunk(
       console.log(state.recipe.meal);
 
       const response = await axios.get(
-        `https://www.themealdb.com/api/json/v1/1/filter.php?c=${state.recipe.meal}`
+        `https://www.themealdb.com/api/json/v1/1/filter.php?c=${state.recipe.meal}`,
       );
       return response.data.meals;
     } catch (error) {
       console.log(error);
     }
-  }
+  },
 );
 
 export const counterSlice = createSlice({
@@ -88,7 +88,6 @@ export const {
 } = counterSlice.actions;
 
 export const selectAllRecipes = (state) => state.recipe.value;
-export const selectRecipeById = (state, recipeId) =>
-  state.recipe.value.find((recipe) => recipe.id === recipeId);
+export const selectRecipeById = (state, recipeId) => state.recipe.value.find((recipe) => recipe.id === recipeId);
 
 export default counterSlice.reducer;
