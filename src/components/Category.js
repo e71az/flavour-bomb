@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
@@ -22,7 +23,7 @@ const Category = ({ category: { strCategory, strCategoryThumb } }) => {
 };
 
 Category.propTypes = {
-  category: PropTypes.isRequired,
+  category: PropTypes.object.isRequired,
 };
 
 export default Category;

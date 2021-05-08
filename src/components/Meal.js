@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable react/forbid-prop-types, jsx-a11y/anchor-is-valid */
 import { PropTypes } from 'prop-types';
 
 const Meal = ({ meal: { strMeal, strMealThumb } }) => (
@@ -16,7 +16,7 @@ const Meal = ({ meal: { strMeal, strMealThumb } }) => (
 );
 
 Meal.propTypes = {
-  meal: PropTypes.isRequired,
+  meal: PropTypes.object.isRequired,
 };
 
 export default Meal;

@@ -29,8 +29,6 @@ export const fetchMeals = createAsyncThunk(
     const state = getState();
 
     try {
-      console.log(state.recipe.meal);
-
       const response = await axios.get(
         `https://www.themealdb.com/api/json/v1/1/filter.php?c=${state.recipe.meal}`,
       );

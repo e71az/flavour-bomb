@@ -10,7 +10,6 @@ const Router = () => (
     <Switch>
       {/* This is a failsafe route */}
       <Route exact path="/" component={Home} />
-
       <Route exact path="/home" component={Home} />
       <Route exact path="/meals" component={Meals} />
     </Switch>
