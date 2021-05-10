@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Category from '../components/Category';
-import { selectAllRecipes, fetchCategories } from '../reducers/recipeSlice';
+import Recipe from '../components/Recipe';
+import { selectAllRecipes, fetchRecipes } from '../reducers/recipeSlice';
 
-const CategoryList = () => {
+const RecipeList = () => {
   const dispatch = useDispatch();
-  const recipeCategories = useSelector(selectAllRecipes);
+  const recipes = useSelector(selectAllRecipes);
   const { status, error } = useSelector((state) => state.recipe);
 
   useEffect(() => {
-    if (status === 'idle' || status === 'meals' || status === 'recipe') {
-      dispatch(fetchCategories());
+    if (status === 'meals') {
+      dispatch(fetchRecipes());
     }
   }, [status, dispatch]);
 
@@ -24,10 +24,8 @@ const CategoryList = () => {
         <div />
       </div>
     );
-  } else if (status === 'categories') {
-    content = recipeCategories.map((category) => (
-      <Category key={category.idCategory} category={category} />
-    ));
+  } else if (status === 'recipe') {
+    content = recipes.map((recipe) => <Recipe key={recipe.idMeal} recipe={recipe} />);
   } else if (status === 'failed') {
     content = <div>{error}</div>;
   }
@@ -35,4 +33,4 @@ const CategoryList = () => {
   return <section className="categories-list">{content}</section>;
 };
 
-export default CategoryList;
+export default RecipeList;

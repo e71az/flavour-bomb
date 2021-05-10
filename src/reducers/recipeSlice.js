@@ -7,10 +7,11 @@ const initialState = {
   status: 'idle',
   error: null,
   meal: null,
+  recipe: null,
 };
 
-export const fetchRecipes = createAsyncThunk(
-  'recipes/fetchRecipes',
+export const fetchCategories = createAsyncThunk(
+  'recipes/fetchCategories',
   async () => {
     try {
       const response = await axios.get(
@@ -39,26 +40,45 @@ export const fetchMeals = createAsyncThunk(
   },
 );
 
-export const counterSlice = createSlice({
-  name: 'counter',
+export const fetchRecipes = createAsyncThunk(
+  'recipes/fetchRecipes',
+  async (arg, { getState }) => {
+    const state = getState();
+
+    try {
+      const response = await axios.get(
+        `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${state.recipe.recipe}`,
+      );
+      return response.data.meals;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+);
+
+export const foodSlice = createSlice({
+  name: 'food',
   initialState,
   reducers: {
     mealFilter: (state, action) => {
       state.meal = action.payload;
     },
+    recipeFilter: (state, action) => {
+      state.recipe = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchRecipes.pending, (state) => ({
+      .addCase(fetchCategories.pending, (state) => ({
         status: 'loading',
         value: state.value,
         meal: state.meal,
       }))
-      .addCase(fetchRecipes.fulfilled, (state, action) => ({
+      .addCase(fetchCategories.fulfilled, (state, action) => ({
         status: 'categories',
         value: action.payload,
       }))
-      .addCase(fetchRecipes.rejected, (state, action) => ({
+      .addCase(fetchCategories.rejected, (state, action) => ({
         status: 'failed',
         error: action.error.message,
       }))
@@ -75,18 +95,27 @@ export const counterSlice = createSlice({
       .addCase(fetchMeals.rejected, (state, action) => ({
         status: 'failed',
         error: action.error.message,
+      }))
+      .addCase(fetchRecipes.pending, (state) => ({
+        status: 'loading',
+        value: state.value,
+        recipe: state.recipe,
+      }))
+      .addCase(fetchRecipes.fulfilled, (state, action) => ({
+        status: 'recipe',
+        value: action.payload,
+        recipe: state.recipe,
+      }))
+      .addCase(fetchRecipes.rejected, (state, action) => ({
+        status: 'failed',
+        error: action.error.message,
       }));
   },
 });
 
-export const {
-  increment,
-  decrement,
-  incrementByAmount,
-  mealFilter,
-} = counterSlice.actions;
+export const { mealFilter, recipeFilter } = foodSlice.actions;
 
 export const selectAllRecipes = (state) => state.recipe.value;
 export const selectRecipeById = (state, recipeId) => state.recipe.value.find((recipe) => recipe.id === recipeId);
 
-export default counterSlice.reducer;
+export default foodSlice.reducer;
