@@ -3,8 +3,16 @@
 :root {
   --main-titles-font: 'Itim', cursive;
   --main-golden-color: rgb(255, 237, 136);
-
+  background-color: black;
   /* border-top: 1px solid black; */
+}
+.home {
+  background-color: black;
+}
+
+.filter-list {
+  background-color: black;
+  color: white;
 }
 
 a,

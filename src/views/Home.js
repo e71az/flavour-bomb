@@ -3,7 +3,7 @@ import CategoryList from '../containers/CategoryList';
 
 function Home() {
   return (
-    <div>
+    <div className="home">
       <CategoryList />
     </div>
   );

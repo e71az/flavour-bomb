@@ -3,8 +3,11 @@
 import { PropTypes } from 'prop-types';
 
 const CategoryFilter = ({ filteredCategories, handleFilterChange }) => (
-  <div className="col-sm-2 ">
-    <select className="level" onChange={(event) => handleFilterChange(event)}>
+  <div className="text-center pb-3">
+    <select
+      className="form-select filter-list"
+      onChange={(event) => handleFilterChange(event)}
+    >
       <option value="All">All</option>
       {filteredCategories.map((category, i) => (
         <option key={i} value={category}>
