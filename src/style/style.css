@@ -4,7 +4,6 @@
   --main-titles-font: 'Itim', cursive;
   --main-golden-color: rgb(255, 237, 136);
   background-color: black;
-  /* border-top: 1px solid black; */
 }
 .home {
   background-color: black;
@@ -26,8 +25,6 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 100;
-
-  /* padding-top: 10px; */
 }
 
 .navbar a {
