@@ -12,7 +12,7 @@ const CategoryList = () => {
   const dispatch = useDispatch();
   const recipeCategories = useSelector(selectAllRecipes);
   const { status, error, filter } = useSelector((state) => state.recipe);
-  console.log(status, error, filter);
+
   useEffect(() => {
     if (status === 'idle' || status === 'meals' || status === 'recipe') {
       dispatch(fetchCategories());
@@ -45,10 +45,7 @@ const CategoryList = () => {
         handleFilterChange={handleFilterChange}
       />
     );
-    content = recipeCategories.map((category) => (
-      <Category key={category.idCategory} category={category} />
-    ));
-    console.log(filter);
+
     if (filter === 'All') {
       content = recipeCategories.map((category) => (
         <Category key={category.idCategory} category={category} />
