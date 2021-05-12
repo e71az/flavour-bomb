@@ -22,6 +22,17 @@ pre {
   word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
 
+iframe {
+  width: 100vw;
+  height: auto;
+  border: none;
+  padding-top: 4%;
+}
+
+.youtube-vid-container {
+  background-color: black;
+}
+
 .meal-content {
   background-color: black;
   color: white;
@@ -138,5 +149,9 @@ a:hover {
   .img-meal-container {
     height: 35vh;
     background-position: center;
+  }
+
+  iframe {
+    height: 40vh;
   }
 }
