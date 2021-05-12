@@ -1,6 +1,4 @@
-/* eslint-disable operator-linebreak */
-/* eslint-disable object-curly-newline */
-/* eslint-disable react/forbid-prop-types, jsx-a11y/anchor-is-valid */
+/* eslint-disable max-len, operator-linebreak, object-curly-newline, react/forbid-prop-types, jsx-a11y/anchor-is-valid */
 import { PropTypes } from 'prop-types';
 
 const Recipe = ({

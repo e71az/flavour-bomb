@@ -1,5 +1,4 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable react/forbid-prop-types */
+/* eslint-disable react/no-array-index-key, react/forbid-prop-types */
 import { PropTypes } from 'prop-types';
 
 const CategoryFilter = ({ filteredCategories, handleFilterChange }) => (

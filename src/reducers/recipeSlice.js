@@ -1,5 +1,4 @@
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable max-len, no-param-reassign, consistent-return, no-console */
+/* eslint-disable max-len, no-param-reassign, consistent-return, no-console, implicit-arrow-linebreak */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
