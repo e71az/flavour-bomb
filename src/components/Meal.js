@@ -10,7 +10,7 @@ const Meal = ({ meal: { idMeal, strMeal, strMealThumb } }) => {
   return (
     <Link to="/recipe" onClick={() => dispatch(recipeFilter(idMeal))}>
       <div
-        data-testid="recipe"
+        data-testid="meal"
         className="img-meal-container"
         style={{
           backgroundImage: `url(${strMealThumb})`,

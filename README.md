@@ -58,6 +58,10 @@ This is the **Flavour Bomb** Capstone project, a catalogue of recipes where user
 
 ![screenshot2](./src/assets/meals.png)
 
+## Recipe:
+
+![screenshot3](./src/assets/recipes.png)
+
 ## Demo Link
 
 [Live Demo Link](https://flavourbomb.netlify.app/)

@@ -2,7 +2,8 @@
 
 exports[`Meal component tests Matches snapshot 1`] = `
 <a
-  href="#"
+  href="/recipe"
+  onClick={[Function]}
 >
   <div
     className="img-meal-container"
