@@ -93,11 +93,13 @@ export const foodSlice = createSlice({
         status: 'loading',
         value: state.value,
         meal: state.meal,
+        filter: 'All',
       }))
       .addCase(fetchMeals.fulfilled, (state, action) => ({
         status: 'meals',
         value: action.payload,
         meal: state.meal,
+        filter: 'All',
       }))
       .addCase(fetchMeals.rejected, (state, action) => ({
         status: 'failed',
@@ -107,11 +109,13 @@ export const foodSlice = createSlice({
         status: 'loading',
         value: state.value,
         recipe: state.recipe,
+        filter: 'All',
       }))
       .addCase(fetchRecipes.fulfilled, (state, action) => ({
         status: 'recipe',
         value: action.payload,
         recipe: state.recipe,
+        filter: 'All',
       }))
       .addCase(fetchRecipes.rejected, (state, action) => ({
         status: 'failed',
