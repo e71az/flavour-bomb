@@ -8,7 +8,7 @@ const Recipe = ({
 }) => {
   const youtubeVid = strYoutube.replace('watch?v=', 'embed/');
   let vidContainer;
-  console.log(youtubeVid);
+
   if (youtubeVid !== '') {
     vidContainer = (
       <div className="youtube-vid-container">
