@@ -1,9 +1,8 @@
 /* eslint-disable react/forbid-prop-types, jsx-a11y/anchor-is-valid */
 import { PropTypes } from 'prop-types';
-import { Link } from 'react-router-dom';
 
-const Recipe = ({ recipe: { strMeal, strMealThumb } }) => (
-  <Link to="#">
+const Recipe = ({ recipe: { strMeal, strMealThumb, strInstructions } }) => (
+  <>
     <div
       data-testid="recipe"
       className="img-meal-container"
@@ -13,7 +12,8 @@ const Recipe = ({ recipe: { strMeal, strMealThumb } }) => (
     >
       <h5 className="transparent-banner pl-3 py-2">{strMeal}</h5>
     </div>
-  </Link>
+    <pre className="meal-content">{strInstructions}</pre>
+  </>
 );
 
 Recipe.propTypes = {
