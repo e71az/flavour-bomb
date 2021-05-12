@@ -1,44 +1,157 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
 
-## Available Scripts
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/e71az/flavour-bomb" style="text-decoration: none;">
+    <img src="src/assets/flavourbomb.png" alt="Reserved logo" width="208" height="54" align="center">
+  </a>
 
-In the project directory, you can run:
+  <h3 align="center">React & Redux Project --> flavour-bomb<h3>
+  <p align="center">
+    <a href="#table-of-contents"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    -
+    <a href="https://github.com/e71az/flavour-bomb/issues">Report a Bug</a>
+    -
+    <a href="https://github.com/e71az/flavour-bomb/issues">Request a Feature</a>
+    -
+  </p>
+</p>
 
-### `npm start`
+<!-- TABLE OF CONTENTS -->
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Table of Contents
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- [About the Project](#about-the-project)
 
-### `npm test`
+  - [Screenshots](#screenshots)
+  - [Demo Link](#demo-link)
+  - [Design Credits](#design-credits)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Automated Tests](#automated-tests)
+  - [Built With](#built-with)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [Contributors](#contributors)
+- [Contributing](#contributing)
+- [Show Your Support](#show-your-support)
+- [License](#license)
 
-### `npm run build`
+<!-- ABOUT THE PROJECT -->
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## About The Project
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+This is the **Flavour Bomb** Capstone project, a catalogue of recipes where users are able to navigate different recipes from a public API. Testing done with React testing library and app deployment done to Netlify.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Screenshots
 
-### `npm run eject`
+## Categories:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![screenshot](./src/assets/categories.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Meals:
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![screenshot2](./src/assets/meals.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Demo Link
 
-## Learn More
+[Live Demo Link](https://flavourbomb.netlify.app/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Design Credits
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[Marc-Antoine Roy on Behance](https://www.behance.net/gallery/11351281/NomNom)
+
+## Prerequisites
+
+- Code editor
+- Supported Browser
+- Node.js installed
+
+## Installation
+
+To get a local copy up and running follow these simple example steps:
+
+- Clone this repository into your local machine
+
+```bash
+  $ git clone https://github.com/e71az/flavour-bomb.git
+```
+
+- Run:
+
+```bash
+  $ npm install
+```
+
+- Run:
+
+```bash
+  $ npm start
+```
+
+- Enter in your web browser address bar:
+
+  localhost:8080
+
+- Wait for the meal categories to load
+
+- Navigate the recipes!
+
+## Automated Tests
+
+- Run the command and see the output
+
+```
+$ npm test (and press a)
+```
+
+### Built With
+
+This project was built using these technologies:
+
+- Javascript
+- HTML
+- React & Redux Toolkit
+- MealDB API
+- React testing library
+- Netlify
+- ESlint and Stylelint as linters
+
+## Contributors
+
+👤 **Elias Castañeda**
+
+- Github: [@e71az](https://github.com/e71az)
+- Linkedin: [@e71az](https://www.linkedin.com/in/eliasecasta/)
+
+## Contributing
+
+:handshake:
+
+Contributions, issues and feature requests are welcome!
+Feel free to check the [issues page](https://github.com/e71az/flavour-bomb/issues)
+
+## Show your support
+
+Give a :star: if you like this project!
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
+[contributors-shield]: https://img.shields.io/github/contributors/e71az/flavour-bomb.svg?style=flat-square
+[contributors-url]: https://github.com/e71az/flavour-bomb/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/e71az/flavour-bomb
+[forks-url]: https://github.com/e71az/flavour-bomb/network/members
+[stars-shield]: https://img.shields.io/github/stars/e71az/flavour-bomb
+[stars-url]: https://github.com/e71az/flavour-bomb/stargazers
+[issues-shield]: https://img.shields.io/github/issues/e71az/flavour-bomb.svg?style=flat-square
+[issues-url]: https://github.com/e71az/flavour-bomb/issues
+
+## License
+
+📝 This project is [MIT](https://opensource.org/licenses/MIT) licensed.
