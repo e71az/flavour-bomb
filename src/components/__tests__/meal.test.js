@@ -1,6 +1,8 @@
 import { render, screen, cleanup } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import renderer from 'react-test-renderer';
+import { Provider } from 'react-redux';
+import store from '../../app/store';
 import Meal from '../Meal';
 
 afterEach(() => {
@@ -17,17 +19,21 @@ describe('Meal component tests', () => {
 
   // This render is for normal testing
   render(
-    <Router>
-      <Meal meal={meal} />
-    </Router>,
+    <Provider store={store}>
+      <Router>
+        <Meal meal={meal} />
+      </Router>
+    </Provider>,
   );
 
   // This renderer is for snapshot testing
   const tree = renderer
     .create(
-      <Router>
-        <Meal meal={meal} />
-      </Router>,
+      <Provider store={store}>
+        <Router>
+          <Meal meal={meal} />
+        </Router>
+      </Provider>,
     )
     .toJSON();
 
