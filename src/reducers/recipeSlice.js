@@ -1,3 +1,4 @@
+/* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable max-len, no-param-reassign, consistent-return, no-console */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
@@ -8,6 +9,7 @@ const initialState = {
   error: null,
   meal: null,
   recipe: null,
+  filter: 'All',
 };
 
 export const fetchCategories = createAsyncThunk(
@@ -66,6 +68,9 @@ export const foodSlice = createSlice({
     recipeFilter: (state, action) => {
       state.recipe = action.payload;
     },
+    changeFilter: (state, action) => {
+      state.filter = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -73,10 +78,12 @@ export const foodSlice = createSlice({
         status: 'loading',
         value: state.value,
         meal: state.meal,
+        filter: state.filter,
       }))
       .addCase(fetchCategories.fulfilled, (state, action) => ({
         status: 'categories',
         value: action.payload,
+        filter: state.filter,
       }))
       .addCase(fetchCategories.rejected, (state, action) => ({
         status: 'failed',
@@ -113,9 +120,10 @@ export const foodSlice = createSlice({
   },
 });
 
-export const { mealFilter, recipeFilter } = foodSlice.actions;
+export const { mealFilter, recipeFilter, changeFilter } = foodSlice.actions;
 
 export const selectAllRecipes = (state) => state.recipe.value;
-export const selectRecipeById = (state, recipeId) => state.recipe.value.find((recipe) => recipe.id === recipeId);
+export const selectRecipeById = (state, recipeId) =>
+  state.recipe.value.find((recipe) => recipe.id === recipeId);
 
 export default foodSlice.reducer;
